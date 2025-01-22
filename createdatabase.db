@@ -1,0 +1,22 @@
+CREATE DATABASE bookstranslate
+
+CREATE TABLE users(
+    user_id int NOT NULL AUTO_INCREMENT,
+    username varchar(32) NOT NULL,
+    name varchar(128) NOT NULL,
+    password varchar(128) NOT NULL,
+    email varchar(128) NOT NULL,
+    PRIMARY KEY(user_id)
+)
+
+CREATE TABLE bookorder (
+    order_id int NOT NULL AUTO_INCREMENT,
+    user_id int NOT NULL ,
+    name varchar(128) NOT NULL,
+    book_name varchar(128) NOT NULL, 
+    og_language varchar(64) NOT NULL,
+    new_language varchar(64) NOT NULL,
+    created timestamp NOT NULL,
+    modified timestamp NOT NULL,
+    PRIMARY KEY(order_id)
+)

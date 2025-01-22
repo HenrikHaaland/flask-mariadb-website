@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+</head>
+<body>
+    <div class="registration-container">
+        <h1>Register</h1>
+        <form class="registration-info" action="/createaccount" method="POST">
+            <input class="input-styling" type="text" name="username" id="username" placeholder="Username">
+            <input class="input-styling" type="password" name="password" id="password" placeholder="password">
+            <input class="input-styling" type="text" name="name" id="name" placeholder="Full name">
+            <input class="input-styling" type="email" name="email" id="email" placeholder="E-mail">
+            <button type="submit">Submit!</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>translate your books</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="/static/book.css">
 </head>
 <body>
-    <h1>order book translation</h1>
+    <div class="body-container">
+        <h1>order book translation</h1>
+
+        <p>Welcome {{session}}</p>
+        
+    
+        <form class="input-container" action="/book" method="POST">
+            <br>
+            <input class="input" type="text" name="name" id="name" placeholder="write your name" required>
+            <br><br>
+            <input class="input" type="text" name="book_name" id="book_name" placeholder="book name" required>
+            <br><br>
+            <input class="input" type="text" name="author" id="author" placeholder="author of the book" required>
+            <br><br>
+            <input class="input" type="text" name="og_language" id="og_language" placeholder="original language" required>
+            <br><br>
+            <input class="input" type="text" name="new_language" id="new_language" placeholder="translated language" required>
+            <br><br>
+            <textarea class="input-text" name="description" id="description" placeholder="description (not required)" style="resize:none;"></textarea>
+            <br><br>
+            <button type="submit">submit your order</button>
+    
+        </form>
+    </div>
+    
 </body>
 </html>

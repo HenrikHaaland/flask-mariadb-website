@@ -3,13 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log in</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>login</h1>
-    <input type="username" placeholder="username">
-    <input type="password" placeholder="password">
-    <button>login</button>
-    <a href="/createaccount">dont have an account?</a>
+    <div class="login-container">
+        <h1>login</h1>
+        
+        <form class="registration-info" id="login-form" action="/login_form_handler" method="POST">
+            <input class="input-styling" type="text" name="username" id="username" placeholder="username" required>
+            <br>
+            <input class="input-styling" type="password" name="password" id="password" placeholder="password" required>
+            <br>
+            <button type="submit">login</button>
+        </form>
+        <br><br>
+        
+        <a href="/createaccount">dont have an account?</a>
+    </div>
 </body>
+<script>
+    document.getElementById("login-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        formData = new FormData(this);
+    
+        var url = "/login_form_handler";
+
+        fetch(url, {
+            method : "POST",
+            body : formData
+        })
+
+        .then(response => response.json())
+
+        .then(response => {
+            switch(response.error) {
+                case "noexist":
+                    alert("This user does not exist.")
+                    break
+                case "wrong":
+                    alert("Wrong password.")
+                    break
+            }
+
+            if (response.redirect == 1) {
+                window.location = "/book"
+            }
+        })
+
+        .catch(error => {
+            alert("Something went wrong.")
+            console.error(error)
+        })
+    })
+</script>
 </html>
